@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Page Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <form (ngSubmit)="addDetail()">
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="todo.name" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Age</ion-label>
+        <ion-input type="number" [(ngModel)]="todo.age" name="age"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tel.</ion-label>
+        <ion-input type="tel" [(ngModel)]="todo.tel" name="tel"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" block text-uppercase color="danger">
+        <ion-icon name="md-add"></ion-icon>
+        Add Here
+      </button>
+    </form>
+  </ion-card>
+  <ion-list>
+    <button ion-item *ngFor="let farmer of farmers" (click)="detail(farmer)">
+      <ion-icon name="contact" item-start large></ion-icon>
+      <h1>
+        {{farmer.name}}
+      </h1>
+      <p>
+        {{farmer.age}}
+      </p>
+    </button>
+  </ion-list>
+</ion-content>
